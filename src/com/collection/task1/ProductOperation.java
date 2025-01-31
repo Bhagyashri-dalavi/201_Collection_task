@@ -7,9 +7,13 @@ public class ProductOperation {
 
 	List<Product> list = new ArrayList<Product>();
 
-	public String addProduct(Product product) {    //in return it gives String 
+	public String addProduct(Product product) {    
 
-//If not exists, add the product
+		for (Product dpproduct : list) {
+			if(dpproduct.getProductName().equalsIgnoreCase(product.getProductName()));
+			return "product already exit";
+			
+		}
 		list.add(product);
 		return "Product added Successfully!";
 	}
