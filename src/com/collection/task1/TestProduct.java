@@ -6,7 +6,7 @@ import java.util.Scanner;
 public class TestProduct {
 	public static void main(String[] args) {
 
-		int choice = 0;
+		int choice ;
 		Scanner sc = new Scanner(System.in);
 		ProductOperation operation = new ProductOperation();
 
@@ -16,13 +16,13 @@ public class TestProduct {
 			System.out.println("3. Get All Product");
 			System.out.println("0. To terminate Application");
 
-			System.out.println("Enter Your hoice: ");
+			System.out.println("Enter Your choice: ");
 			choice = sc.nextInt();
 			sc.nextLine();  //clear buffer  after integer input
 
 			switch (choice) {
 			case 0: {
-				choice = 0;
+				System.out.println("Existing..");
 				break;
 			}
 			case 1: {
@@ -37,9 +37,7 @@ public class TestProduct {
 				String productName = sc.nextLine();  //use nextLine() to read full product name
 				
 				Object obj = operation.getSpecificProduct(productName);
-				if(obj instanceof String) {
-					System.out.println(obj);
-				}
+				System.out.println(obj);
 				
 				break;
 			}
@@ -59,7 +57,7 @@ public class TestProduct {
 			}
 
 			default:
-				choice = 0;
+				System.out.println("Invalid Option! Please try again ");
 			}
 
 		} while (choice != 0);
