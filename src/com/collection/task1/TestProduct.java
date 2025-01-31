@@ -57,7 +57,7 @@ public class TestProduct {
 			}
 
 			default:
-				System.out.println("Invalid Option! Please try again");
+				System.out.println("Invalid Option! Please try again ");
 			}
 
 		} while (choice != 0);
