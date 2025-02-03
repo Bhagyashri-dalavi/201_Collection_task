@@ -10,6 +10,13 @@ public class ProductOperation {
 	public String addProduct(Product product) {    //in return it gives String 
 
 //If not exists, add the product
+		
+		for (Product dbproduct : list) {
+			if(dbproduct.getProductName().equals(product.getProductName())) {
+				return "Product Already Exist";
+			}
+			
+		}
 		list.add(product);
 		return "Product added Successfully!";
 	}
@@ -18,13 +25,16 @@ public class ProductOperation {
 			try {
 				if(list.isEmpty()) {
 					return "Product not exists in list";
-				}else {
+				}
+				else {
 					return list;
 				}
 			} catch (Exception e) {
 				return "Something went wrong";
 			}
 	}
+		
+
 		public Object getSpecificProduct(String productName) {
 			for(Product product:list)
 			if(product.getProductName().equalsIgnoreCase(productName)) {
@@ -33,4 +43,9 @@ public class ProductOperation {
 			}
 			return "Product not exists";
 		}
+		
+		
+		
 }
+
+		

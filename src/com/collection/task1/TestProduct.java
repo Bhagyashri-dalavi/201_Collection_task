@@ -8,7 +8,8 @@ public class TestProduct {
 
 		int choice = 0;
 		Scanner sc = new Scanner(System.in);
-		ProductOperation operation = new ProductOperation();
+		ProductOperation operation = new ProductOperation();	        
+	       
 
 		do {
 			System.out.println("1. Add Product");
@@ -16,33 +17,38 @@ public class TestProduct {
 			System.out.println("3. Get All Product");
 			System.out.println("0. To terminate Application");
 
-			System.out.println("Enter Your hoice: ");
+
+			System.out.println("Enter Your Choice:");
 			choice = sc.nextInt();
 			sc.nextLine();  //clear buffer  after integer input
+			
+			
+			Product p1 = new Product(101, "pen", 24, 100.0, "2022-09-09", "2023-08-08");
+			System.out.println(operation.addProduct(p1));
+
 
 			switch (choice) {
 			case 0: {
 				choice = 0;
 				break;
 			}
+			
 			case 1: {
 				Product product = ProductUtility.prepareProduct();
 				String msg = operation.addProduct(product);
 				System.out.println(msg);
-			
 				break;
 			}
+			
 			case 2: {
 				System.out.println("Enter Product Name To Search: ");
-				String productName = sc.nextLine();  //use nextLine() to read full product name
-				
+				String productName = sc.next(); 		
 				Object obj = operation.getSpecificProduct(productName);
-				if(obj instanceof String) {
-					System.out.println(obj);
-				}
+				System.out.println(obj);
 				
 				break;
 			}
+
 			case 3: {
 				Object obj = operation.getAllProduct();
 
@@ -57,13 +63,16 @@ public class TestProduct {
 
 				break;
 			}
-
+			
+			
 			default:
-				choice = 0;
+			System.out.println("Default....");
 			}
 
 		} while (choice != 0);
 		System.out.println("Application Terminated");
+		
+		
 
 	}
 }
